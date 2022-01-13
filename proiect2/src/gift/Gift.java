@@ -24,6 +24,9 @@ public final class Gift {
         this.quantity = gift.getQuantity();
     }
 
+    /**
+     * Method decrementing the gift's quantity
+     */
     public void reduceQuantity() {
         quantity--;
     }

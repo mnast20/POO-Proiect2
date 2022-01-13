@@ -22,7 +22,7 @@ public final class ChildInput {
     private ArrayList<Category> giftsPreferences;
     private Elf elf;
 
-    private ChildInput(ChildBuilder childBuilder) {
+    private ChildInput(final ChildBuilder childBuilder) {
         this.id = childBuilder.id;
         this.firstName = childBuilder.firstName;
         this.lastName = childBuilder.lastName;
@@ -94,11 +94,11 @@ public final class ChildInput {
         this.niceScore = niceScore;
     }
 
-    public void setNiceScoreBonus(Double niceScoreBonus) {
+    public void setNiceScoreBonus(final Double niceScoreBonus) {
         this.niceScoreBonus = niceScoreBonus;
     }
 
-    public void setElf(Elf elf) {
+    public void setElf(final Elf elf) {
         this.elf = elf;
     }
 
@@ -119,14 +119,15 @@ public final class ChildInput {
         private final Elf elf;
 
         @JsonCreator
-        public ChildBuilder(@JsonProperty("id") Integer id,
-                            @JsonProperty("firstName") String firstName,
-                            @JsonProperty("lastName") String lastName,
-                            @JsonProperty("age") Integer age,
-                            @JsonProperty("city") Cities city,
-                            @JsonProperty("niceScore")Double niceScore,
-                            @JsonProperty("giftsPreferences") ArrayList<Category> giftsPreferences,
-                            @JsonProperty("elf") Elf elf) {
+        public ChildBuilder(@JsonProperty("id") final Integer id,
+                            @JsonProperty("firstName") final String firstName,
+                            @JsonProperty("lastName") final String lastName,
+                            @JsonProperty("age") final Integer age,
+                            @JsonProperty("city") final Cities city,
+                            @JsonProperty("niceScore") final Double niceScore,
+                            @JsonProperty("giftsPreferences")
+                                    final ArrayList<Category> giftsPreferences,
+                            @JsonProperty("elf") final Elf elf) {
             this.id = id;
             this.firstName = firstName;
             this.lastName = lastName;
@@ -137,11 +138,18 @@ public final class ChildInput {
             this.elf = elf;
         }
 
-        public ChildBuilder setNiceScoreBonus(double niceScoreBonus) {
-            this.niceScoreBonus = niceScoreBonus;
+        /**
+         * Method setting the optional nice score bonus property to a given value
+         */
+        public ChildBuilder setNiceScoreBonus(final Double bonusNiceScore) {
+            this.niceScoreBonus = bonusNiceScore;
             return this;
         }
 
+
+        /**
+         * Method building the child
+         */
         public ChildInput build() {
             return new ChildInput(this);
         }

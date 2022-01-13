@@ -2,8 +2,14 @@ package gift.strategy;
 
 import enums.Strategy;
 
-public class StrategyFactory {
-    public static DistributeGiftsStrategy createStrategy (Strategy strategy) {
+public final class StrategyFactory {
+    private StrategyFactory() {
+    }
+
+    /**
+     * Method creating strategy based on a given type
+     */
+    public static DistributeGiftsStrategy createStrategy(final Strategy strategy) {
         return switch (strategy) {
             case ID_STRATEGY -> new IdStrategy();
             case NICE_SCORE_CHILDREN_STRATEGY -> new NiceScoreStrategy();

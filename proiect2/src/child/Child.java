@@ -2,8 +2,6 @@ package child;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import database.SantaDatabase;
-import elf.ElfFactory;
-import elf.ElfStrategy;
 import enums.Category;
 import enums.Cities;
 import enums.Elf;
@@ -104,7 +102,7 @@ public class Child {
         return averageScore;
     }
 
-    public Double getNiceScoreBonus() {
+    public final Double getNiceScoreBonus() {
         return niceScoreBonus;
     }
 
@@ -120,7 +118,7 @@ public class Child {
         return receivedGifts;
     }
 
-    public Elf getElf() {
+    public final Elf getElf() {
         return elf;
     }
 
@@ -132,7 +130,7 @@ public class Child {
         this.assignedBudget = assignedBudget;
     }
 
-    public void setElf(Elf elf) {
+    public final void setElf(final Elf elf) {
         this.elf = elf;
     }
 
@@ -148,10 +146,6 @@ public class Child {
      */
     public void calculateSantaBudget() {
         assignedBudget = SantaDatabase.getSantaDatabase().getBudgetUnit() * averageScore;
-        //        if (elf.toString().compareTo("pink") == 0 || elf.toString().compareTo("black") == 0) {
-//            ElfStrategy elfStrategy = ElfFactory.createElf(elf);
-//            elfStrategy.execute(this);
-//        }
     }
 
     /**

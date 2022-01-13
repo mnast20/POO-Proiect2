@@ -15,7 +15,7 @@ public final class ChildUtil {
      * Method applying the yellow elves' strategy to the children (with yellow elves) in
      * a given list
      */
-    public void applyYellowElvesChildren(ArrayList<Child> children) {
+    public void applyYellowElvesChildren(final ArrayList<Child> children) {
         for (Child child: children) {
             Elf elf = child.getElf();
             // check if child has a yellow elf
@@ -30,7 +30,7 @@ public final class ChildUtil {
     /**
      * Method finding all children in given city
      */
-    public ArrayList<Child> findChildrenInCity(Cities city) {
+    public ArrayList<Child> findChildrenInCity(final Cities city) {
         ArrayList<Child> childrenInCity = new ArrayList<>();
         for (Child child: SantaDatabase.getSantaDatabase().getChildren()) {
             // check if a child is located in given city

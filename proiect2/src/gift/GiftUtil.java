@@ -35,7 +35,8 @@ public final class GiftUtil {
      * Method returning a list of gifts in a given category
      */
     public ArrayList<Gift> findGiftsInCategory(final Category category,
-                                               final ArrayList<Gift> gifts, final boolean caseQuantity) {
+                                               final ArrayList<Gift> gifts,
+                                               final boolean caseQuantity) {
         ArrayList<Gift> giftsInCategory = new ArrayList<>();
 
         for (Gift gift: gifts) {
@@ -97,7 +98,7 @@ public final class GiftUtil {
     /**
      * Method distributing gifts to the children in the Santa Database
      */
-    public void distributeGiftsChildren(ArrayList<Child> children) {
+    public void distributeGiftsChildren(final ArrayList<Child> children) {
         for (Child child: children) {
             distributeGiftsChild(child);
         }

@@ -10,12 +10,12 @@ public final class InitialData {
         return children;
     }
 
-    public void setChildren(final ArrayList<ChildInput> children) {
-        this.children = children;
-    }
-
     public ArrayList<GiftInput> getSantaGiftsList() {
         return santaGiftsList;
+    }
+
+    public void setChildren(final ArrayList<ChildInput> children) {
+        this.children = children;
     }
 
     public void setSantaGiftsList(final ArrayList<GiftInput> santaGiftsList) {

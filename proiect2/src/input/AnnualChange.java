@@ -47,7 +47,7 @@ public final class AnnualChange {
         this.childrenUpdates = childrenUpdates;
     }
 
-    public void setStrategy(Strategy strategy) {
+    public void setStrategy(final Strategy strategy) {
         this.strategy = strategy;
     }
 }

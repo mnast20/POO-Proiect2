@@ -33,8 +33,10 @@ public class ChildVisitor implements Visitor {
             averageScore = numerator / size;
         }
 
-        averageScore += averageScore * kid.getNiceScoreBonus() / 100;
+        // add nice score bonus
+        averageScore += averageScore * kid.getNiceScoreBonus() / Constants.HUNDRED;
 
+        // check if nice score exceeds the maximum value and reduce it to 10
         if (averageScore > Constants.MAXIMUM_SCORE) {
             averageScore = Constants.MAXIMUM_SCORE;
         }
@@ -63,8 +65,10 @@ public class ChildVisitor implements Visitor {
             averageScore = numerator / denominator;
         }
 
-        averageScore += averageScore * teen.getNiceScoreBonus() / 100;
+        // add nice score bonus
+        averageScore += averageScore * teen.getNiceScoreBonus() / Constants.HUNDRED;
 
+        // check if nice score exceeds the maximum value and reduce it to 10
         if (averageScore > Constants.MAXIMUM_SCORE) {
             averageScore = Constants.MAXIMUM_SCORE;
         }

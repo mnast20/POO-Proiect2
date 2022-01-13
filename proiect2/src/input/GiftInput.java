@@ -36,7 +36,7 @@ public final class GiftInput {
         this.category = category;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(final int quantity) {
         this.quantity = quantity;
     }
 }

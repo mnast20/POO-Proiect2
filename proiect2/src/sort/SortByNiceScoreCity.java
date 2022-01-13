@@ -9,6 +9,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SortByNiceScoreCity implements Sort {
+    /**
+     * Method sorting cities based on their average nice scores and returning all children,
+     * ordered by their city's average nice score
+     */
     public ArrayList<Child> sort() {
         ArrayList<Child> sortedChildrenByNiceScoreCities = new ArrayList<>();
         Map<Cities, ArrayList<Child>> cityChildrenMap = new HashMap<>();
@@ -25,7 +29,8 @@ public class SortByNiceScoreCity implements Sort {
         }
 
         cities.sort((city1, city2) -> {
-            int result = (-1) * Double.compare(cityAverageScoreMap.get(city1), cityAverageScoreMap.get(city2));
+            int result = (-1) * Double.compare(cityAverageScoreMap.get(city1),
+                    cityAverageScoreMap.get(city2));
             if (result == 0) {
                 return city1.toString().compareTo(city2.toString());
             }

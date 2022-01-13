@@ -31,10 +31,6 @@ public final class Main {
 
         ObjectMapper objectMapper = new ObjectMapper();
         for (int i = 1; i <= Constants.TESTS_NUMBER; i++) {
-            if (i == 26) {
-                int ok = 1;
-            }
-
             // input and output files name strings
             String inputFilename = "./tests/test" + i + Constants.FILE_EXTENSION;
             String outputFilename = Constants.OUTPUT_PATH + i + Constants.FILE_EXTENSION;
