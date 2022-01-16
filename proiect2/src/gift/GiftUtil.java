@@ -42,6 +42,7 @@ public final class GiftUtil {
         for (Gift gift: gifts) {
             // check if gift's category corresponds with given category
             if (gift.getCategory() == category) {
+                // check if quantity is important
                 if (caseQuantity && gift.getQuantity() > 0) {
                     // add gift to list
                     giftsInCategory.add(gift);
@@ -63,19 +64,18 @@ public final class GiftUtil {
         ArrayList<Category> giftsPreferences = child.getGiftsPreferences();
 
         Elf elf = child.getElf();
+
+        // apply budget elf to child
         if (elf.toString().compareTo("pink") == 0 || elf.toString().compareTo("black") == 0) {
             ElfStrategy elfStrategy = ElfFactory.createElf(elf);
             elfStrategy.execute(child);
         }
 
-        if (child.getId() == 1) {
-            int ok = 1;
-        }
-
         Double childSantaBudget = child.getAssignedBudget();
 
         for (Category category: giftsPreferences) {
-            // find the lowest priced gift inside a category from a child's gifts preferences
+            // find the lowest priced gift inside a category (in stock) from
+            // a child's gifts preferences
             Gift foundGift = findGiftMinPrice(findGiftsInCategory(category, allGifts, true));
 
             // check if a gift was found

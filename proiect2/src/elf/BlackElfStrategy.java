@@ -10,6 +10,8 @@ public class BlackElfStrategy implements ElfStrategy {
      */
     public void execute(final Child child) {
         Double assignedBudget = child.getAssignedBudget();
+
+        // decrease budget with 30%
         assignedBudget = assignedBudget - assignedBudget * Constants.THIRTY / Constants.HUNDRED;
         child.setAssignedBudget(assignedBudget);
     }

@@ -12,7 +12,10 @@ public class NiceScoreCityStrategy implements DistributeGiftsStrategy {
      * sorted list of children
      */
     public void distributeGifts() {
+        // sort children based on the cities' nice scores
         ArrayList<Child> children = new SortByNiceScoreCity().sort();
+
+        // distribute gifts to sorted list of children
         new GiftUtil().distributeGiftsChildren(children);
     }
 }

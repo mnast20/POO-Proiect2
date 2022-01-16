@@ -21,7 +21,6 @@ public final class Round {
         if (annualChange == null) {
             // distribute gifts to children based on id strategy
             strategy = StrategyFactory.createStrategy(Strategy.ID_STRATEGY);
-            // strategy = StrategyFactory.createStrategy(Strategy.NICE_SCORE_CHILDREN_STRATEGY);
         } else {
             // annual changes are requested and the round isn't the same as round0
             new Year().change(annualChange);
@@ -30,6 +29,7 @@ public final class Round {
         }
 
         strategy.distributeGifts();
+
         // apply yellow elves' strategy for children with yellow children
         new ChildUtil().applyYellowElvesChildren(SantaDatabase.getSantaDatabase().getChildren());
 
@@ -56,9 +56,6 @@ public final class Round {
 
         // execute new year rounds
         for (int i = 0; i < SantaDatabase.getSantaDatabase().getNumberOfYears(); i++) {
-            if (i == 0) {
-                int ok = 1;
-            }
             AnnualChange annualChange = annualChanges.get(i);
             // execute new year round
             annualChildren = executeRound(annualChange);

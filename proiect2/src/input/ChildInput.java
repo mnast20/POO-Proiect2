@@ -108,15 +108,15 @@ public final class ChildInput {
 
     @JsonPOJOBuilder(buildMethodName = "build", withPrefix = "set")
     public static class ChildBuilder {
-        private final Integer id;
-        private final String firstName;
-        private final String lastName;
-        private final Integer age;
-        private final Cities city;
-        private final Double niceScore;
-        private Double niceScoreBonus = 0.0;
-        private final ArrayList<Category> giftsPreferences;
-        private final Elf elf;
+        private final Integer id; // mandatory
+        private final String firstName; // mandatory
+        private final String lastName; // mandatory
+        private final Integer age; // mandatory
+        private final Cities city; // mandatory
+        private final Double niceScore; // mandatory
+        private Double niceScoreBonus = 0.0; // optional
+        private final ArrayList<Category> giftsPreferences; // mandatory
+        private final Elf elf; // mandatory
 
         @JsonCreator
         public ChildBuilder(@JsonProperty("id") final Integer id,

@@ -9,6 +9,8 @@ public class PinkElfStrategy implements ElfStrategy {
      */
     public void execute(final Child child) {
         Double assignedBudget = child.getAssignedBudget();
+
+        // increase budget with 30%
         assignedBudget = assignedBudget + assignedBudget * Constants.THIRTY / Constants.HUNDRED;
         child.setAssignedBudget(assignedBudget);
     }

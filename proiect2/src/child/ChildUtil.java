@@ -18,6 +18,7 @@ public final class ChildUtil {
     public void applyYellowElvesChildren(final ArrayList<Child> children) {
         for (Child child: children) {
             Elf elf = child.getElf();
+
             // check if child has a yellow elf
             if (elf.toString().compareTo("yellow") == 0) {
                 // apply yellow elf strategy
@@ -32,12 +33,14 @@ public final class ChildUtil {
      */
     public ArrayList<Child> findChildrenInCity(final Cities city) {
         ArrayList<Child> childrenInCity = new ArrayList<>();
+
         for (Child child: SantaDatabase.getSantaDatabase().getChildren()) {
             // check if a child is located in given city
             if (child.getCity() == city) {
                 childrenInCity.add(child);
             }
         }
+
         return childrenInCity;
     }
 
@@ -97,9 +100,13 @@ public final class ChildUtil {
     public Double calculateAverageScoreChildren(final ArrayList<Child> children) {
         int size = children.size();
         Double averageScore = 0.0;
+
+        // calculate children nice scores' sum
         for (Child child: children) {
             averageScore += child.getAverageScore();
         }
+
+        // calculate average score
         return averageScore / size;
     }
 }

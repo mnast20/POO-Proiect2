@@ -168,6 +168,7 @@ public class Child {
             }
             i++;
         }
+
         // Category wasn't found
         return -1;
     }
@@ -179,6 +180,7 @@ public class Child {
         if (niceScore == null) {
             return;
         }
+
         // add new score to child's nice score list
         niceScoreHistory.add(niceScore);
         // recalculate average score
