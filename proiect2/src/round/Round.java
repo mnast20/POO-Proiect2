@@ -5,7 +5,7 @@ import child.ChildUtil;
 import database.SantaDatabase;
 import enums.Strategy;
 import gift.strategy.DistributeGiftsStrategy;
-import gift.strategy.StrategyFactory;
+import gift.strategy.DistributeStrategyFactory;
 import input.AnnualChange;
 import output.Output;
 import year.Year;
@@ -20,12 +20,12 @@ public final class Round {
         DistributeGiftsStrategy strategy;
         if (annualChange == null) {
             // distribute gifts to children based on id strategy
-            strategy = StrategyFactory.createStrategy(Strategy.ID_STRATEGY);
+            strategy = DistributeStrategyFactory.createStrategy(Strategy.ID_STRATEGY);
         } else {
             // annual changes are requested and the round isn't the same as round0
             new Year().change(annualChange);
             // distribute gifts to children based on given strategy
-            strategy = StrategyFactory.createStrategy(annualChange.getStrategy());
+            strategy = DistributeStrategyFactory.createStrategy(annualChange.getStrategy());
         }
 
         strategy.distributeGifts();

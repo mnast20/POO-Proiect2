@@ -2,8 +2,8 @@ package gift.strategy;
 
 import enums.Strategy;
 
-public final class StrategyFactory {
-    private StrategyFactory() {
+public final class DistributeStrategyFactory {
+    private DistributeStrategyFactory() {
     }
 
     /**

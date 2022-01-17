@@ -2,10 +2,7 @@ package gift;
 
 import child.Child;
 import database.SantaDatabase;
-import elf.ElfFactory;
-import elf.ElfStrategy;
 import enums.Category;
-import enums.Elf;
 
 import java.util.ArrayList;
 
@@ -62,14 +59,6 @@ public final class GiftUtil {
     public void distributeGiftsChild(final Child child) {
         ArrayList<Gift> allGifts = SantaDatabase.getSantaDatabase().getSantaGiftsList();
         ArrayList<Category> giftsPreferences = child.getGiftsPreferences();
-
-        Elf elf = child.getElf();
-
-        // apply budget elf to child
-        if (elf.toString().compareTo("pink") == 0 || elf.toString().compareTo("black") == 0) {
-            ElfStrategy elfStrategy = ElfFactory.createElf(elf);
-            elfStrategy.execute(child);
-        }
 
         Double childSantaBudget = child.getAssignedBudget();
 

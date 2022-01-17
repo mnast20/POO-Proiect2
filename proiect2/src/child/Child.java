@@ -2,6 +2,8 @@ package child;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import database.SantaDatabase;
+import elf.ElfFactory;
+import elf.ElfStrategy;
 import enums.Category;
 import enums.Cities;
 import enums.Elf;
@@ -14,8 +16,7 @@ import java.util.ListIterator;
 
 @JsonIgnoreProperties(value = {
         "niceScoreBonus",
-        "elf",
-        "elfBudget"
+        "elf"
 })
 
 public class Child {
@@ -146,6 +147,10 @@ public class Child {
      */
     public void calculateSantaBudget() {
         assignedBudget = SantaDatabase.getSantaDatabase().getBudgetUnit() * averageScore;
+        if (elf == Elf.PINK || elf == Elf.BLACK) {
+            ElfStrategy elfStrategy = ElfFactory.createElf(elf);
+            elfStrategy.execute(this);
+        }
     }
 
     /**

@@ -6,15 +6,12 @@ import child.Kid;
 import child.Teen;
 import child.ChildUtil;
 import common.ChildAge;
-import enums.Elf;
 import gift.Gift;
 import input.ChildInput;
 import input.GiftInput;
 import input.Input;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public final class SantaDatabase {
     private Integer numberOfYears;
@@ -22,7 +19,6 @@ public final class SantaDatabase {
     private Double budgetUnit;
     private final ArrayList<Child> children = new ArrayList<>();
     private final ArrayList<Gift> santaGiftsList = new ArrayList<>();
-    private final Map<Elf, ArrayList<Child>> elfChildrenMap = new HashMap<>();
 
     private static SantaDatabase instance;
 
@@ -58,7 +54,7 @@ public final class SantaDatabase {
      */
     public void addChildren(final ArrayList<ChildInput> inputChildren) {
         for (ChildInput child: inputChildren) {
-            Child newChild = null;
+            Child newChild;
 
             if (child.getAge() < ChildAge.KID_YEARS_START) {
                 newChild = new Baby(child);
@@ -69,15 +65,6 @@ public final class SantaDatabase {
             } else if (child.getAge() <= ChildAge.TEEN_YEARS_FINAL) {
                 newChild = new Teen(child);
                 children.add(newChild);
-            }
-
-            if (newChild != null) {
-                ArrayList<Child> elfChildren = elfChildrenMap.get(child.getElf());
-                if (elfChildren == null) {
-                    elfChildren = new ArrayList<>();
-                }
-                elfChildren.add(newChild);
-                elfChildrenMap.put(child.getElf(), elfChildren);
             }
         }
     }
@@ -126,14 +113,6 @@ public final class SantaDatabase {
 
     public ArrayList<Gift> getSantaGiftsList() {
         return santaGiftsList;
-    }
-
-    public Map<Elf, ArrayList<Child>> getElfChildrenMap() {
-        return elfChildrenMap;
-    }
-
-    public static SantaDatabase getInstance() {
-        return instance;
     }
 
     public void setSantaBudget(final Double santaBudget) {
