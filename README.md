@@ -87,7 +87,8 @@ Class containing a method sorting children by ID, but since the children are alr
 ### SortByNiceScore:
 Class containing a method that orders the children in the Database based on their average score.
 
-### SortByNiceScoreCity: Class containing a method that orders the children in the Database based on the cities' average score. Two Hashmaps are created, one with the city as key and a list of people that live in the City as value, and the other one keep's the Cities' average scores. The cities are ordered based on their average nice score. After, by iterating through the sorted list of Cities, all the children living in the cities are put in order in a list.
+### SortByNiceScoreCity:
+Class containing a method that orders the children in the Database based on the cities' average score. Two Hashmaps are created, one with the city as key and a list of people that live in the City as value, and the other one keep's the Cities' average scores. The cities are ordered based on their average nice score. After, by iterating through the sorted list of Cities, all the children living in the cities are put in order in a list.
 
 ## Year Class:
 Class containing a method handling year changes. First, all the children age and the adults are removed from the Database. For every child update, the child is searched in the Database based on the id mentioned in the update. If he is found, a new nice score can be added to his list of nice score history, and/or the child's elf can be changed and/or his list of preferences will be updated, adding the new preferred categories at the start of the list. After, if need be, Santa's budget will be updated and new children and gifts are added to the Database. Then, the budget unit and the assigned budget are recalculated.
