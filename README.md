@@ -96,9 +96,10 @@ Class containing a method handling year changes. First, all the children age and
 ## Round class:
 Class containing a method for solving all rounds and a method executing a single round. For every round, the gifts are distributed and then, the yellow elves are applied. If the round is different from Round0, the year changes are implemented before the gifts are distributed.
 
-## AnnualChildren: Class containing a list of children from a certain year.
+## AnnualChildren:
+Class containing a list of children from a certain year.
 
-### Output class:
+## Output class:
 Class containing a list of AnnualChildren for every year (0 to number of years).
 
 ## Main class:
